@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import { motion} from 'framer-motion/dist/framer-motion'
 
 const containerVariant = {
   init : {
@@ -12,7 +12,7 @@ const containerVariant = {
     opacity : 1,
     transition : {
       type : 'spring',
-      delay : 0.5
+      delay : 0
     }
   }
 }

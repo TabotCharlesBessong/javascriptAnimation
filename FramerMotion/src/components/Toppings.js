@@ -1,13 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import { motion} from 'framer-motion/dist/framer-motion'
 
+const containerVariant = {
+  init : {
+    x : '100vw',
+    opacity:0 
+  } , 
+  final : {
+    x : 0,
+    opacity : 1,
+    transition : {
+      type : 'spring',
+      delay : 0
+    }
+  }
+}
 
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = ['mushrooms', 'peppers', 'onions', 'olives', 'extra cheese', 'tomatoes'];
 
   return (
-    <div className="toppings container">
+    <motion.div className="toppings container"
+    variants  = {containerVariant}
+    initial = "init"
+    animate = "final"
+    >
       
       <h3>Step 2: Choose Toppings</h3>
       <ul>
@@ -47,7 +65,7 @@ const Toppings = ({ addTopping, pizza }) => {
         </motion.button>
       </Link>
 
-    </div>
+    </motion.div>
   )
 }
 

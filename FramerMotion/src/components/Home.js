@@ -3,6 +3,22 @@ import { Link } from 'react-router-dom';
 // import { motion } from 'framer-motion';
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
+
+const containerVariant = {
+  init : {
+    x : '100vw',
+    opacity:0 
+  } , 
+  final : {
+    x : 0,
+    opacity : 1,
+    transition : {
+      type : 'spring',
+      delay : 0
+    }
+  }
+}
+
 const Home = () => {
   return (
     <motion.div className="home container"
