@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+/public/*.wolf
+/public/Quicksand-Light.woff
+/public/Quicksand-Light.woff2
+
 
 # testing
 /coverage
