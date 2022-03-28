@@ -35,18 +35,36 @@ const btnVariants = {
   
 }
 
+const containerVariant1 = {
+  init : {
+    opacity:0
+  },
+  final : {
+    opacity : 1,
+    transition : {
+      delay : 0.5 , duration : 2
+    }
+  },
+  exit : {
+    y : '-100vh',
+    // y: -200,
+    transformX :90,
+    transition : {
+      ease:'easeInOut'
+    }
+  }
+}
+
 const Home = () => {
   return (
     <motion.div className="home container"
-    initial ={{
-      opacity:0
-    }}
-    animate={{
-      opacity:1 
-    }}
-    transition = {{
-      delay : 0.5 , duration : 2
-    }}
+    variants = {containerVariant1}
+    initial ="init"
+    animate="final"
+    exit="exit"
+    // transition = {{
+    //   delay : 0.5 , duration : 2
+    // }}
     >
       <h2 >
         Welcome to Pizza Joint

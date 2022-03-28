@@ -34,6 +34,14 @@ const childVariants  = {
       delay : 0.6,
       
     }
+  },
+  exit : {
+    y : '-100vh',
+    // y: -200,
+    transformX :90,
+    transition : {
+      ease:'easeInOut'
+    }
   }
 }
 
@@ -49,6 +57,7 @@ const Order = ({ pizza }) => {
     variants = {containerVariant}
     initial = "init"
     animate = "final"
+    exit = "exit"
     >
     
     <AnimatePresence>
