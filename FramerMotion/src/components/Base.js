@@ -25,9 +25,20 @@ const Base = ({ addBase, pizza }) => {
         {bases.map(base => {
           let spanClass = pizza.base === base ? 'active' : '';
           return (
-            <li key={base} onClick={() => addBase(base)}>
+            <motion.li key={base} onClick={() => addBase(base)}
+            whileHover = {{
+              originX : 0,
+              scale : 1.25 , 
+              color:'#f8e112',
+              textTransform:'capitalize'
+            }}
+
+            transition = {{
+              type : 'spring' , stiffness : 300
+            }}
+            >
               <span className={spanClass}>{ base }</span>
-            </li>
+            </motion.li>
           )
         })}
       </ul>
@@ -42,11 +53,20 @@ const Base = ({ addBase, pizza }) => {
           x : 0
         }}
         transition = {{
-          type :'spring' , stiffness : 140
+          type :'tween' , stiffness : 140 , duration : 1.2 , delay:0.75
         }}
         >
           <Link to="/toppings">
-            <button>Next</button>
+            <motion.button
+            whileHover = {{
+              scale : 1.2,
+              textTransform :'uppercase',
+              color:'#1ab785',
+              border:' 2px solid #1ab785',
+              textShadow : "0px 0px 8px rgb(255,255,255)",
+              boxShadow : "0px 0px 8px rgb(255,255,255)",
+            }} 
+            >Next</motion.button>
           </Link>
         </motion.div>
       )}
