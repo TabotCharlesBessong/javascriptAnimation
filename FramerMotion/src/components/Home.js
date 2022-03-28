@@ -19,6 +19,23 @@ const containerVariant = {
   }
 }
 
+const btnVariants = {
+  hover : {
+    scale : [1,1.2,1,1.2,1],
+    textTransform :'uppercase',
+    color:'#1ab785',
+    border:' 2px solid #1ab785',
+    textShadow : "0px 0px 8px rgb(255,255,255)",
+    boxShadow : "0px 0px 8px rgb(255,255,255)",
+  },
+  // visible : {
+  //   transition : {
+  //     delay : 2 , 
+  //   },
+  //   x : [0,-20,20,-20.20,0]
+  // }
+}
+
 const Home = () => {
   return (
     <motion.div className="home container"
@@ -37,14 +54,10 @@ const Home = () => {
       </h2>
       <Link to="/base">
         <motion.button 
-        whileHover = {{
-          scale : 1.2,
-          textTransform :'uppercase',
-          color:'#1ab785',
-          border:' 2px solid #1ab785',
-          textShadow : "0px 0px 8px rgb(255,255,255)",
-          boxShadow : "0px 0px 8px rgb(255,255,255)",
-        }} >
+        variants = {btnVariants}
+        whileHover = "hover"
+        // animate = "visible"
+        >
           Create Your Pizza
         </motion.button>
       </Link>
