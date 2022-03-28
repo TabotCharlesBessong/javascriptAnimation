@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion} from 'framer-motion/dist/framer-motion'
+import React , {useState} from 'react';
+import { motion ,AnimatePresence} from 'framer-motion/dist/framer-motion'
 
 const containerVariant = {
   init : {
@@ -39,13 +39,31 @@ const childVariants  = {
 
 
 const Order = ({ pizza }) => { 
+  const [show, setShow] = useState(true)
+
+  setTimeout(()=>{
+    setShow(false)
+  },4000)
   return (
     <motion.div className="container order"
     variants = {containerVariant}
     initial = "init"
     animate = "final"
     >
-      <h2>Thank you for your order :)</h2>
+    
+    <AnimatePresence>
+      {show  && (<motion.h2
+      exit = {{
+        y:-1000
+      }}
+      transition  = {{
+        delay:0.4,
+        duration : 2.5
+      }}
+      >Thank you for your order :)</motion.h2>)}
+      
+    </AnimatePresence>
+      
       <motion.p
       variants = {childVariants}
       initial = "init"
