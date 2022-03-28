@@ -12,6 +12,9 @@ const Home = () => {
     animate={{
       opacity:1 
     }}
+    transition = {{
+      delay : 0.5 , duration : 2
+    }}
     >
       <h2 >
         Welcome to Pizza Joint
