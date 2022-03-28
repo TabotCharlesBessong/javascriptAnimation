@@ -2,22 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
+const containerVariant = {
+  init : {
+    x : '100vw',
+    opacity:0 
+  } , 
+  final : {
+    x : 0,
+    opacity : 1,
+    transition : {
+      type : 'spring',
+      delay : 0.5
+    }
+  }
+}
 
 const Base = ({ addBase, pizza }) => {
   const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
   return (
     <motion.div className="base container"
-    initial = {{
-      x : '100vw'
-
-    }}
-    animate = {{
-      x : 0
-    }}
-    transition = {{
-      type :'spring' , delay : 0.5
-    }}
+    variants = {containerVariant}
+    initial = "init"
+    animate = "final"
+    
     >
 
       <h3>Step 1: Choose Your Base</h3>
