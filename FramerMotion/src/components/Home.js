@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import { motion } from 'framer-motion';
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import Loader from './Loader';
 
 
 const containerVariant = {
@@ -78,6 +79,7 @@ const Home = () => {
           Create Your Pizza
         </motion.button>
       </Link>
+      <Loader/>
     </motion.div>
   )
 }
