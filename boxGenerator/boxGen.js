@@ -1,19 +1,19 @@
-let elem = document.getElementById("element");
-let code = document.getElementById("code");
+let elem = document.querySelector("element");
+let code = document.querySelector("code");
 let inputs = document.querySelectorAll(".sliders input");
 
 inputs.forEach((inp) => inp.addEventListener("input", generateShadow));
 
-function generateShadow() {
-  let hShadow = document.getElementById("h-shadow").value;
-  let vShadow = document.getElementById("v-shadow").value;
-  let blurRadius = document.getElementById("blur-radius").value;
-  let spreadRadius = document.getElementById("spread-radius").value;
-  let shadowColor = document.getElementById("shadow-color").value;
-  let shadowColorOpacity = document.getElementById(
+const generateShadow = ()=> {
+  let hShadow = document.querySelector("h-shadow").value;
+  let vShadow = document.querySelector("v-shadow").value;
+  let blurRadius = document.querySelector("blur-radius").value;
+  let spreadRadius = document.querySelector("spread-radius").value;
+  let shadowColor = document.querySelector("shadow-color").value;
+  let shadowColorOpacity = document.querySelector(
     "shadow-color-opacity"
   ).value;
-  let shadowInset = document.getElementById("shadow-inset").checked;
+  let shadowInset = document.querySelector("shadow-inset").checked;
 
   //Using ternary operator to check if inset checkbox is checked or not.
   //If checked we add the inset prefix
@@ -32,7 +32,7 @@ function generateShadow() {
 }
 
 //Converting Hex value to rgba
-function hexToRgba(shadowColor, shadowColorOpacity) {
+const hexToRgba = (shadowColor, shadowColorOpacity)=> {
   let r = parseInt(shadowColor.substr(1, 2), 16);
   let g = parseInt(shadowColor.substr(3, 2), 16);
   let b = parseInt(shadowColor.substr(5, 2), 16);
@@ -40,7 +40,7 @@ function hexToRgba(shadowColor, shadowColorOpacity) {
 }
 
 //Copy the generated code to clipboard
-function copyCode() {
+const copyCode = ()=> {
   code.select();
   document.execCommand("copy");
   alert("Code Copied To Clipboard");
