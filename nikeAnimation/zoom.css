@@ -3,6 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .image-container {
   width: 30%;
   margin: 5% 0 0 5%;
@@ -16,7 +23,7 @@ img {
   position: absolute;
   width: 25%;
   height: 35%;
-  margin-top: -30%;
+  margin-top: -20%;
   margin-left: 50%;
   border: 2px solid #555;
   z-index: 1000;
@@ -32,6 +39,9 @@ img {
   border-radius: 50%;
 }
 @media only screen and (max-width: 768px) {
+  body{
+    flex-direction: column;
+  }
   .image-container {
     width: 55%;
   }
@@ -39,5 +49,9 @@ img {
     margin-left: 70%;
     width: 25%;
     height: 15%;
+    position: absolute;
+    bottom: 2rem;
+    right: 50%;
+    /* background: red; */
   }
 }

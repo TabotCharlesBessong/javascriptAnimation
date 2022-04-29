@@ -1,11 +1,11 @@
 //Initial References
-let imageContainer = document.getElementById("image-container");
-let productImage = document.getElementById("product-image");
-let overlay = document.getElementById("overlay");
-let mouseOverlay = document.getElementById("mouse-overlay");
+const imageContainer = document.getElementById("image-container");
+const productImage = document.getElementById("product-image");
+const overlay = document.getElementById("overlay");
+const mouseOverlay = document.getElementById("mouse-overlay");
 
 //events object(stores events for touch,mouse)
-let events = {
+const events = {
   mouse: {
     move: "mousemove",
   },
@@ -18,7 +18,7 @@ let events = {
 let deviceType = "";
 
 //Checks for device type
-function isTouchDevice() {
+const isTouchDevice = ()=> {
   try {
     //We try to create touch event (it would fail for desktops and throw error)
     deviceType = "touch";
@@ -30,13 +30,14 @@ function isTouchDevice() {
   }
 }
 
-//hides overlay
+//hides overlay by not displaying them 
 const hideElement = () => {
   overlay.style.display = "none";
   mouseOverlay.style.display = "none";
 };
 
-//Check device so that deviceType variable is set to touch or mouse
+//Check device so that deviceType variable is set to touch or mouse 
+// This will depend if the device is a mobile , tablet or desktop
 isTouchDevice();
 
 /*In addEventListener we use the events object to set the event so deviceType would be set to touch or mouse since we called 'isTouchDevice()' above
@@ -51,19 +52,22 @@ imageContainer.addEventListener(events[deviceType].move, (e) => {
     //pageX and pageY return the position of client's cursor from top left pf screen
     var x = !isTouchDevice() ? e.pageX : e.touches[0].pageX;
     var y = !isTouchDevice() ? e.pageY : e.touches[0].pageY;
+    console.log(x,"\n",y);
   } catch (e) {}
   //get image height and width
   let imageWidth = imageContainer.offsetWidth;
   let imageHeight = imageContainer.offsetHeight;
+  console.log(imageWidth,"\n",imageHeight);
 
   //check if mouse goes out of image container
+  // if it is out ,no overlay will be displayed 
   if (
     imageWidth - (x - imageContainer.offsetLeft) < 15 ||
     x - imageContainer.offsetLeft < 15 ||
     imageHeight - (y - imageContainer.offsetTop) < 15 ||
     y - imageContainer.offsetTop < 15
   ) {
-    hideElement();
+    hideElement()
   } else {
     overlay.style.display = "block";
     mouseOverlay.style.display = "inline-block";
