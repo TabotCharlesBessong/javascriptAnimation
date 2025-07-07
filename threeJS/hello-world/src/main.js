@@ -3,12 +3,18 @@ import {OrbitControls} from "three/addons/controls/OrbitControls.js"
 
 const scene = new THREE.Scene();
 console.log(scene)
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  4,
-  100
-);
+// const camera = new THREE.PerspectiveCamera(
+//   75,
+//   window.innerWidth / window.innerHeight,
+//   4,
+//   100
+// );
+
+const aspectRatio = window.innerWidth / window.innerHeight
+
+const camera = new THREE.OrthographicCamera(
+  -1,1,1,-1,0.1,200
+)
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
