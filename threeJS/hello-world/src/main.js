@@ -30,8 +30,9 @@ camera.position.z = 5;
 const controls = new OrbitControls(camera, renderer.domElement);
 console.log(renderer.domElement);
 const canvas = document.querySelector("canvas.threejs");
-console.log(canvas);
-console.log(controls);
+// console.log(canvas);
+// console.log(controls);
+// console.log(window.devicePixelRatio)
 
 controls.enableDamping = true;
 controls.autoRotate = true;
@@ -61,6 +62,6 @@ renderLoop();
 //   renderer.render(scene, camera);
 // }
 
-console.log(cube);
-console.log(camera);
-console.log(window.innerHeight, window.innerWidth);
+// console.log(cube);
+// console.log(camera);
+// console.log(window.innerHeight, window.innerWidth);
