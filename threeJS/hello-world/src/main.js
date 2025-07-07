@@ -1,20 +1,18 @@
 import * as THREE from "three";
-import {OrbitControls} from "three/addons/controls/OrbitControls.js"
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
-console.log(scene)
-// const camera = new THREE.PerspectiveCamera(
-//   75,
-//   window.innerWidth / window.innerHeight,
-//   4,
-//   100
-// );
+console.log(scene);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  4,
+  100
+);
 
-const aspectRatio = window.innerWidth / window.innerHeight
+// const aspectRatio = window.innerWidth / window.innerHeight;
 
-const camera = new THREE.OrthographicCamera(
-  -1,1,1,-1,0.1,200
-)
+// const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -29,27 +27,31 @@ scene.add(cube);
 camera.position.z = 5;
 
 // initialize controls
-const controls = new OrbitControls(camera, renderer.domElement)
-console.log(renderer.domElement)
-const canvas = document.querySelector('canvas.threejs')
+const controls = new OrbitControls(camera, renderer.domElement);
+console.log(renderer.domElement);
+const canvas = document.querySelector("canvas.threejs");
 console.log(canvas);
 console.log(controls);
 
-controls.enableDamping = true
-controls.autoRotate = true
+controls.enableDamping = true;
+controls.autoRotate = true;
 
 // console.log(window.requestAnimationFrame())
 
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+})
+
 const renderLoop = () => {
   // console.log("redner loops");
-  controls.update()
-  renderer.render(scene,camera)
-  window.requestAnimationFrame(renderLoop)
-  
-}
+  controls.update();
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(renderLoop);
+};
 
-renderLoop()
-
+renderLoop();
 
 // function animate() {
 //   cube.rotation.x += 0.006;
@@ -59,7 +61,6 @@ renderLoop()
 //   renderer.render(scene, camera);
 // }
 
-console.log(cube)
+console.log(cube);
 console.log(camera);
-console.log(window.innerHeight,window.innerWidth)
-
+console.log(window.innerHeight, window.innerWidth);
